@@ -1,1 +1,1 @@
-# ReadmeGen
+uvicorn main:app --reload
