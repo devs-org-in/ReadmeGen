@@ -7,7 +7,7 @@ export const Navbar = () => {
       <div className="flex justify-between items-center">
         {/* Logo or Brand */}
         <Link href="/" className="text-white text-xl font-bold">
-          ReAdGeN
+          ReadGen
         </Link>
 
         {/* Navigation Links */}
