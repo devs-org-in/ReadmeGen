@@ -14,15 +14,9 @@ app = FastAPI(title="GitHub README Generator",
               description="An API that generates README files for GitHub repositories using Groq AI",
               version="1.0.0")
 
-# CORS middleware configuration
-origins = [
-    "http://localhost:3000",
-    "http://localhost:5000",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -37,8 +37,17 @@ async def get_repo_info(repo_link):
         forks = repo.forks_count
         language = repo.language or "Not specified"
         
-        contents = await asyncio.to_thread(repo.get_contents, "")
-        files = [content.name for content in contents if content.type == "file"]
+        def get_all_files(repo, path=""):
+            contents = repo.get_contents(path)
+            files = []
+            for content in contents:
+                if content.type == "file":
+                    files.append(content.path)
+                elif content.type == "dir":
+                    files.extend(get_all_files(repo, content.path))
+            return files
+        
+        files = await asyncio.to_thread(get_all_files, repo)
         
         logger.info(f"Successfully fetched info for repo: {username}/{repo_name}")
         return {
@@ -60,9 +69,6 @@ async def get_repo_info(repo_link):
         logger.error(f"Error fetching repo info: {str(e)}", exc_info=True)
         raise ValueError(f"An error occurred while fetching repository information: {str(e)}")
 
-# The generate_readme function remains the same
-    # ... (keep the existing implementation)
-
 async def generate_readme(repo_info):
     try:
         prompt = f"""Generate a comprehensive README for the following GitHub repository:
@@ -72,7 +78,7 @@ Description: {repo_info['description']}
 Stars: {repo_info['stars']}
 Forks: {repo_info['forks']}
 Primary Language: {repo_info['language']}
-Files in Root Directory: {', '.join(repo_info['files'])}
+Files in Repository: {', '.join(repo_info['files'])}
 
 Please include the following sections:
 1. Project Title

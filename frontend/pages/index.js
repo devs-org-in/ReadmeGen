@@ -1,8 +1,15 @@
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function Home() {
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen bg-black">
+      <Head>
+        <title>ReadmeGen - GitHub README Generator</title>
+        <meta name="description" content="Create stunning and informative README files for your GitHub repositories using our powerful tool powered by Groq AI." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className="light-beams absolute inset-0 z-0" /> {/* Light Beams background */}
       <div className="relative z-10 flex flex-col items-center">
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl mb-6 text-white">
