@@ -1,4 +1,4 @@
-# ReadmeGen - AI Powered Readme.md File Generator
+# ReadmeGen - AI Powered Readme File Generator
 
 ReadmeGen is a revolutionary tool that utilizes the power of Artificial Intelligence to generate professional and comprehensive README.md files for your GitHub repositories. With just a few clicks, you can have a detailed and informative README file that will help others understand the purpose, usage, and functionality of your project.
 
