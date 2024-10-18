@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .gradient-animation {
+    background: linear-gradient(45deg, #ff00cc, #333399);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+  }
+}
+
+@keyframes lightBeams {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.light-beams {
+  background: linear-gradient(
+    75deg,
+    rgba(255, 255, 255, 0.1) 20%,
+    transparent 20%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.1) 60%,
+    transparent 60%,
+    transparent 80%,
+    rgba(255, 255, 255, 0.05) 80%
+  );
+  background-size: 300% 300%;
+  animation: lightBeams 8s linear infinite;
+}
+
